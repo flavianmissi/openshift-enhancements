@@ -134,13 +134,8 @@ If the config maps are updated, old certificate authorities should be removed
 and new ones should be added. Nodes nor applications shouldn't be restarted to
 apply changes.
 
-There are also consumers that don't have access to the host file system:
-cluster-openshift-apiserver-operator needs a merged config map with all
-certificate authorities for image registries, so that openshift-apiserver can
-access registries.
-
-For them, the mechanism should create a merged config map in
-`openshift-config-managed`.
+Consumers without access to the host filesystem should merge the registry
+configmap with the additionalTrustedCA.
 
 ### API Extensions
 
